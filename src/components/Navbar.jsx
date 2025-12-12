@@ -10,12 +10,11 @@ export default function Navbar() {
   return (
     <>
       {/* Nav  */}
-      <nav className="fized w-full bg-white shadow-md px-6 py-2 z-50 flex justify-between items-center">
+      <nav className="fixed w-full bg-white shadow-md px-6 py-2 z-50 flex justify-between items-center">
         {/* Hamburger menu for mobile screen */}
         <div className="sm:hidden" onClick={() => setOpenMenu(true)}>
           <RiMenuFold4Line size={25} />
         </div>
-        <MobileNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
 
         {/* Logo */}
         <Link to="/">
@@ -39,7 +38,7 @@ export default function Navbar() {
           >
             <PiShoppingCart size={25} />
             {/* Cart Count */}
-            <span className="absolute -top-2 -right-3 bg-red-500 text-white font-medium rounded-full h-5 w-5 flex justify-center items-center">
+            <span className="absolute -top-2 -right-3 bg-red-500 text-white text-sm font-medium rounded-full h-5 w-5 flex justify-center items-center">
               0
             </span>
           </button>
@@ -48,6 +47,7 @@ export default function Navbar() {
           </button>
         </div>
       </nav>
+      <MobileNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </>
   );
 }

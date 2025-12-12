@@ -16,7 +16,7 @@ export default function MobileNav({ openMenu, setOpenMenu }) {
           openMenu ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex flex-col p-5 gap-6">
+        <div className="flex flex-col p-5 gap-6 text-lg font-semibold">
           <Link to="/" onClick={() => setOpenMenu(false)}>
             Home
           </Link>
