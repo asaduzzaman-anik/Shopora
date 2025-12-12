@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { PiShoppingCart } from "react-icons/pi";
 import { RiMenuFold4Line, RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import MobileNav from "./MobileNav";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -14,6 +15,7 @@ export default function Navbar() {
         <div className="sm:hidden" onClick={() => setOpenMenu(true)}>
           <RiMenuFold4Line size={25} />
         </div>
+        <MobileNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
 
         {/* Logo */}
         <Link to="/">
@@ -31,14 +33,17 @@ export default function Navbar() {
         {/* Icons */}
         <div className="flex justify-between items-center gap-6">
           {/* Cart Icon */}
-          <button onClick={() => setOpenCart(true)} className="relative">
+          <button
+            onClick={() => setOpenCart(true)}
+            className="relative cursor-pointer"
+          >
             <PiShoppingCart size={25} />
             {/* Cart Count */}
             <span className="absolute -top-2 -right-3 bg-red-500 text-white font-medium rounded-full h-5 w-5 flex justify-center items-center">
               0
             </span>
           </button>
-          <button>
+          <button className="cursor-pointer">
             <RiUserLine size={25} />
           </button>
         </div>
