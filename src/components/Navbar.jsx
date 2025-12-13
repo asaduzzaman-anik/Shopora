@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <>
       {/* Nav  */}
-      <nav className="fixed w-full bg-white shadow-md px-6 py-2 z-50 flex justify-between items-center">
+      <nav className="fixed w-full h-16 bg-white shadow-md px-6 py-2 z-50 flex justify-between items-center">
         {/* Hamburger menu for mobile screen */}
         <div className="sm:hidden" onClick={() => setOpenMenu(true)}>
           <RiMenuFold4Line size={25} />
