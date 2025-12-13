@@ -10,7 +10,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <main className="pt-16">
+      <main className="pt-20 px-6">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
