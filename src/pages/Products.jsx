@@ -6,7 +6,7 @@ export default function Products() {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
-  const url = "https://dummyjson.com/products";
+  const url = "https://dummyjson.com/products?limit=150";
 
   useEffect(() => {
     fetch(url)
