@@ -25,7 +25,7 @@ export default function FeaturedProducts() {
   };
 
   return (
-    <section className="w-full">
+    <section id="featured-products" className="w-full mb-10">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-2xl font-semibold text-gray-800">
