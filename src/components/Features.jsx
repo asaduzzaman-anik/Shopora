@@ -3,7 +3,10 @@ import FeatureCard from "./FeatureCard";
 
 export default function Features() {
   return (
-    <section id="features" className="bg-slate-500 py-16">
+    <section
+      id="features"
+      className="left-0 right-0 inset-x-0 bg-slate-700 py-16"
+    >
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
         <FeatureCard
           icon={<FaShippingFast />}
