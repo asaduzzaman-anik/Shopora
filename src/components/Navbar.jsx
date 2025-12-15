@@ -61,7 +61,7 @@ export default function Navbar() {
         <div className="hidden text-lg font-medium sm:flex justify-evenly lg:justify-center lg:gap-40 items-center mx-auto h-12 sm:h-16 px-3 sm:px-6 py-2">
           <ul className="flex items-center gap-6">
             <li className="hover:border-b-2 hover:border-b-primary">
-              <Link>Products</Link>
+              <Link to={"/products"}>Products</Link>
             </li>
             <li className="hover:border-b-2 hover:border-b-primary">
               <Link>Categories</Link>
