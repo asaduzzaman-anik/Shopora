@@ -1,31 +1,11 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import useFetch from "../hooks/useFetch";
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-  const [isPending, setIsPending] = useState(true);
-  const [error, setError] = useState(null);
-
   const url = "https://dummyjson.com/products?limit=150";
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error("Invalid URL to fetch data from");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data.products);
-        setIsPending(false);
-        setError(null);
-      })
-      .catch((error) => {
-        setIsPending(false);
-        setError(error.message);
-      });
-  }, [url]);
+  const { data: products, isPending, error } = useFetch(url);
 
   return (
     <div>

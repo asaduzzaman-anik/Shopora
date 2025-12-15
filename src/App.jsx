@@ -12,7 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <main className="pt-20 px-6">
+      <main className="pt-40 px-6">
         {/* <ProductCarousel /> */}
         <Routes>
           <Route path="/" element={<Home />} />

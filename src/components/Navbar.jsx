@@ -12,7 +12,7 @@ export default function Navbar() {
     <>
       <div className="fixed top-0 left-0 inset-x-0 bg-white shadow-md z-50">
         {/* Nav  */}
-        <nav className="w-full h-12 sm:h-16 px-3 sm:px-6 py-2 flex justify-evenly items-center">
+        <nav className="w-full h-12 sm:h-16 px-3 sm:px-6 py-2 flex justify-between lg:justify-evenly items-center">
           {/* Hamburger menu for mobile screen */}
           <div className="sm:hidden" onClick={() => setOpenMenu(true)}>
             <RiMenuFold4Line size={25} />
@@ -21,7 +21,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 ">
             <img src="./logo.png" alt="" className="w-auto h-7 sm:h-12" />
-            <h2 className="text-lg sm:text-2xl font-medium">Shopora</h2>
+            <h2 className="text-lg sm:text-2xl font-medium text-primary">
+              Shopora
+            </h2>
           </Link>
 
           {/* Search Bar for Large Screen */}
@@ -35,12 +37,13 @@ export default function Navbar() {
               <FaSearch />
             </button>
           </div>
+
           {/* Icons */}
           <div className="flex justify-between items-center gap-6">
             {/* Cart Icon */}
             <button
               onClick={() => setOpenCart(true)}
-              className="relative cursor-pointer"
+              className="relative cursor-pointer hover:text-primary"
             >
               <PiShoppingCart size={25} />
               {/* Cart Count */}
@@ -48,21 +51,33 @@ export default function Navbar() {
                 0
               </span>
             </button>
-            <button className="cursor-pointer">
+
+            {/* User Icon */}
+            <button className="cursor-pointer hover:text-primary">
               <RiUserLine size={25} />
             </button>
           </div>
         </nav>
         <div className="hidden text-lg font-medium sm:flex justify-evenly lg:justify-center lg:gap-40 items-center mx-auto h-12 sm:h-16 px-3 sm:px-6 py-2">
-          <div className="flex items-center gap-6">
-            <Link>Products</Link>
-            <Link>Categories</Link>
-            <Link>Best Seller</Link>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link>About Us</Link>
-            <Link>Contact</Link>
-          </div>
+          <ul className="flex items-center gap-6">
+            <li className="hover:border-b-2 hover:border-b-primary">
+              <Link>Products</Link>
+            </li>
+            <li className="hover:border-b-2 hover:border-b-primary">
+              <Link>Categories</Link>
+            </li>
+            <li className="hover:border-b-2 hover:border-b-primary">
+              <Link>Best Seller</Link>
+            </li>
+          </ul>
+          <ul className="flex items-center gap-6">
+            <li className="hover:border-b-2 hover:border-b-primary">
+              <Link>About Us</Link>
+            </li>
+            <li className="hover:border-b-2 hover:border-b-primary">
+              <Link>Contact</Link>
+            </li>
+          </ul>
         </div>
       </div>
 
