@@ -66,16 +66,16 @@ export default function Footer() {
           <h3 className="font-semibold pb-2 mb-2 border-b-2 border-b-white">
             Quick Links
           </h3>
-          <Link to="/" className="hover:text-primary">
+          <Link to="/" className="hover:text-primary w-fit">
             Home
           </Link>
-          <Link to="/products" className="hover:text-primary">
+          <Link to="/products" className="hover:text-primary w-fit">
             Products
           </Link>
-          <Link to="/about" className="hover:text-primary">
+          <Link to="/about" className="hover:text-primary w-fit">
             About
           </Link>
-          <Link to="/contact" className="hover:text-primary">
+          <Link to="/contact" className="hover:text-primary w-fit">
             Contact
           </Link>
         </div>
@@ -87,20 +87,26 @@ export default function Footer() {
           </h3>
           <Link
             to="/products?category=smartphones"
-            className="hover:text-primary"
+            className="hover:text-primary w-fit"
           >
             Smartphones
           </Link>
-          <Link to="/products?category=laptops" className="hover:text-primary">
+          <Link
+            to="/products?category=laptops"
+            className="hover:text-primary w-fit"
+          >
             Laptops
           </Link>
           <Link
             to="/products?category=fragrances"
-            className="hover:text-primary"
+            className="hover:text-primary w-fit"
           >
             Fragrances
           </Link>
-          <Link to="/products?category=skincare" className="hover:text-primary">
+          <Link
+            to="/products?category=skincare"
+            className="hover:text-primary w-fit"
+          >
             Skincare
           </Link>
         </div>

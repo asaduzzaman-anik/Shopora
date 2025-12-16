@@ -20,9 +20,9 @@ export default function Home() {
         heading="Kitchen Accessories"
         url="https://dummyjson.com/products/category/kitchen-accessories?limit=12"
       />
-      {/* Home Decoration */}
+      {/* Smartphones */}
       <ProductSlider
-        heading="Home Decoration"
+        heading="Smartphones"
         url="https://dummyjson.com/products/category/smartphones?limit=12"
       />
       <ShopByCategory />
