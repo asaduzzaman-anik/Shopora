@@ -25,8 +25,6 @@ export default function ShopByCategory() {
       });
   }, [catURL]);
 
-  console.log(categories);
-
   return (
     <section id="product-categories" className="mb-10">
       {/* Header */}
