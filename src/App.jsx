@@ -6,6 +6,7 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProductCarousel from "./components/ProductCarousel";
+import Footer from "./components/Footer";
 // import ProductDetails from "./pages/ProductDetails";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 };

@@ -1,9 +1,13 @@
-export default function FeatureCard({ icon, title, desc }) {
+import { FaShippingFast } from "react-icons/fa";
+
+export default function FeatureCard({ icon, title, description }) {
   return (
-    <div className="text-center bg-gray-200 p-6 rounded-2xl shadow">
-      <div className="text-5xl mb-4 flex justify-center">{icon}</div>
-      <h3 className="font-semibold">{title}</h3>
-      <p className="text-sm text-gray-600">{desc}</p>
+    <div className="bg-gray-200 text-black flex items-center gap-5 px-5 py-2 rounded-lg">
+      <div>{icon}</div>
+      <div>
+        <h3 className="text-lg font-medium">{title}</h3>
+        <p className="text-sm">{description}</p>
+      </div>
     </div>
   );
 }
