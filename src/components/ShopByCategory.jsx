@@ -37,7 +37,10 @@ export default function ShopByCategory() {
       {categories && (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-8 gap-3">
           {categories.map((cat) => (
-            <div className="h-10 bg-gray-600 text-white font-medium rounded-lg p-2 text-center">
+            <div
+              key={cat.slug}
+              className="h-10 bg-gray-600 text-white font-medium rounded-lg p-2 text-center"
+            >
               <p>{cat.name}</p>
             </div>
           ))}

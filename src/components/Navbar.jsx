@@ -4,10 +4,13 @@ import { RiMenuFold4Line, RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import { FaSearch } from "react-icons/fa";
+import { getCartCount } from "../utils/cartUtils";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [openCart, setOpenCart] = useState(false);
+  const cartCount = getCartCount();
+
   return (
     <>
       <div className="fixed top-0 left-0 inset-x-0 bg-white shadow-md z-50">
@@ -47,9 +50,12 @@ export default function Navbar() {
             >
               <PiShoppingCart size={25} />
               {/* Cart Count */}
-              <span className="absolute -top-2 -right-3 bg-secondary text-white text-sm font-medium rounded-full h-5 w-5 flex justify-center items-center">
-                0
-              </span>
+
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-3 bg-secondary text-white text-sm font-medium rounded-full h-5 w-5 flex justify-center items-center">
+                  {cartCount}
+                </span>
+              )}
             </button>
 
             {/* User Icon */}

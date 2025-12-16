@@ -13,8 +13,8 @@ import FeatureCard from "./FeatureCard";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white px-6 py-12">
-      <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+    <footer className="bg-slate-900 text-white px-6 lg:px-20 py-12">
+      <div className="mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-12">
         <FeatureCard
           icon={<FaShippingFast size={40} />}
           title="Fast Delivery"
