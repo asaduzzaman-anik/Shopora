@@ -17,7 +17,7 @@ export default function Products() {
 
       {isPending && (
         <div className="min-h-screen flex flex-col justify-center items-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-black"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-primary"></div>
           <p className="mt-6 text-xl font-semibold">Loading Items...</p>
         </div>
       )}

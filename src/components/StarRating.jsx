@@ -6,7 +6,7 @@ export default function StarRating({ rating, size = 20 }) {
           key={star}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          fill={star <= Math.round(rating) ? "#facc15" : "#e5e7eb"}
+          fill={star <= Math.round(rating) ? "#39853E" : "#e5e7eb"}
           width={size}
           height={size}
         >
