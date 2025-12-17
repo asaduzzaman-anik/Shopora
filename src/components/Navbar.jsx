@@ -1,15 +1,32 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { PiShoppingCart } from "react-icons/pi";
 import { RiMenuFold4Line, RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import { FaSearch } from "react-icons/fa";
 import { getCartCount } from "../utils/cartUtils";
+import CartDrawer from "./CartDrawer";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [openCart, setOpenCart] = useState(false);
-  const cartCount = getCartCount();
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Initial load
+    setCartCount(getCartCount());
+
+    // Listen for cart changes (cross-component sync)
+    const handleStorageChange = () => {
+      setCartCount(getCartCount());
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   return (
     <>
@@ -88,6 +105,8 @@ export default function Navbar() {
       </div>
 
       <MobileNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
+
+      <CartDrawer openCart={openCart} setOpenCart={setOpenCart} />
     </>
   );
 }

@@ -33,7 +33,6 @@ export default function ProductCard({ product }) {
       <button
         onClick={() => {
           addToCart(product);
-          alert("Button Clicked");
         }}
         className="absolute bottom-18 opacity-0 group-hover:opacity-100 transition ease-in-out bg-gray-900 text-white font-medium inset-x-0 text-center p-2 rounded-lg cursor-pointer "
       >

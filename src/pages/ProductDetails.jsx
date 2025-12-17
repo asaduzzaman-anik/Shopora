@@ -86,7 +86,7 @@ export default function ProductDetails() {
         {/* RIGHT: DETAILS */}
         <div>
           <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
-          <p className="text-sm text-gray-700 mb-6">{product.description}</p>
+          <p className="text-sm text-gray-700 mb-2">{product.description}</p>
 
           <div className="flex items-center gap-4 mb-4">
             <StarRating rating={product.rating} />
@@ -101,17 +101,28 @@ export default function ProductDetails() {
               {product.discountPercentage}% discount applied
             </p>
           </div>
+          <div className="flex items-center mb-6 gap-6">
+            <div className="flex items-center gap-4  px-4 py-1 bg-gray-200 rounded-full w-fit text-lg font-medium ">
+              <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
+                −
+              </button>
 
-          <div className="flex items-center gap-4 mb-6 px-4 py-1 bg-gray-200 rounded-full w-fit text-lg font-medium ">
-            <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
-              −
-            </button>
+              <span>{quantity}</span>
 
-            <span>{quantity}</span>
-
-            <button onClick={() => setQuantity((q) => q + 1)}>+</button>
+              <button onClick={() => setQuantity((q) => q + 1)}>+</button>
+            </div>
+            {!(product.availabilityStatus === "Out of Stock") && (
+              <div>
+                <p>
+                  Only{" "}
+                  <span className="text-primary font-medium">
+                    {product.stock}
+                  </span>{" "}
+                  items left!
+                </p>
+              </div>
+            )}
           </div>
-
           <div className="flex gap-4">
             <button
               disabled={product.stock === 0}
@@ -128,7 +139,10 @@ export default function ProductDetails() {
             >
               Add to Cart
             </button>
-            <button className="px-6 py-3 border border-black rounded hover:bg-black hover:text-white">
+            <button
+              disabled={product.stock === 0}
+              className="px-6 py-3 border border-black rounded hover:bg-black hover:text-white"
+            >
               Buy Now
             </button>
           </div>

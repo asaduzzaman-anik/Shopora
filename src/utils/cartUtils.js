@@ -26,3 +26,30 @@ export function getCartCount() {
   const cart = getCart();
   return cart.reduce((total, item) => total + item.quantity, 0);
 }
+
+export function removeFromCart(id) {
+  const cart = getCart().filter((item) => item.id !== id);
+  localStorage.setItem("shopora-cart", JSON.stringify(cart));
+}
+
+export function clearCart() {
+  localStorage.removeItem("shopora-cart");
+}
+
+export function updateQuantity(id, type) {
+  const cart = getCart();
+
+  const updatedCart = cart.map((item) => {
+    if (item.id === id) {
+      return {
+        ...item,
+        quantity:
+          type === "inc" ? item.quantity + 1 : Math.max(1, item.quantity - 1),
+      };
+    }
+    return item;
+  });
+
+  localStorage.setItem("shopora-cart", JSON.stringify(updatedCart));
+  window.dispatchEvent(new Event("storage"));
+}
