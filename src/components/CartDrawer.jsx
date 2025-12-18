@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCart, removeFromCart, updateQuantity } from "../utils/cartUtils";
+import { MdDelete } from "react-icons/md";
 
 export default function CartDrawer({ openCart, setOpenCart }) {
   const [cart, setCart] = useState([]);
@@ -52,9 +53,16 @@ export default function CartDrawer({ openCart, setOpenCart }) {
         {/* Cart Items */}
         <div className="p-4 space-y-4 overflow-y-auto h-[calc(100%-180px)]">
           {cart.length === 0 ? (
-            <p className="text-gray-500 text-center mt-10">
-              Your cart is empty 🛒
-            </p>
+            <div className="h-full flex flex-col items-center justify-center">
+              <img
+                src="empty-cart.png"
+                alt="cart-empty"
+                className="h-30 w-30"
+              />
+              <p className="text-gray-500 text-center mt-10">
+                Uh-Oh! Your cart is empty
+              </p>
+            </div>
           ) : (
             cart.map((item) => (
               <div
@@ -65,7 +73,7 @@ export default function CartDrawer({ openCart, setOpenCart }) {
                 <img
                   src={item.thumbnail}
                   alt={item.title}
-                  className="w-16 h-16 object-cover rounded"
+                  className="w-16 h-24 object-cover rounded"
                 />
 
                 {/* Product Info */}
@@ -76,13 +84,13 @@ export default function CartDrawer({ openCart, setOpenCart }) {
                   <p className="text-sm text-gray-600">${item.price}</p>
 
                   {/* Quantity Controls */}
-                  <div className="flex items-center gap-2 mt-2">
+                  <div className="flex items-center gap-2 mt-2 bg-gray-200 rounded-full w-fit">
                     <button
                       onClick={() => {
                         updateQuantity(item.id, "dec");
                         setCart(getCart());
                       }}
-                      className="px-2 py-1 border rounded hover:bg-gray-100"
+                      className="px-2 py-1 cursor-pointer"
                     >
                       −
                     </button>
@@ -96,7 +104,7 @@ export default function CartDrawer({ openCart, setOpenCart }) {
                         updateQuantity(item.id, "inc");
                         setCart(getCart());
                       }}
-                      className="px-2 py-1 border rounded hover:bg-gray-100"
+                      className="px-2 py-1 cursor-pointer"
                     >
                       +
                     </button>
@@ -111,9 +119,9 @@ export default function CartDrawer({ openCart, setOpenCart }) {
                 {/* Remove */}
                 <button
                   onClick={() => handleRemove(item.id)}
-                  className="text-red-500 font-bold text-lg"
+                  className="font-bold text-lg cursor-pointer"
                 >
-                  ×
+                  <MdDelete />
                 </button>
               </div>
             ))

@@ -4,9 +4,9 @@ import { useRef } from "react";
 import ProductCard from "./ProductCard";
 
 export default function ProductSlider({ heading, url }) {
-  const carouselRef = useRef(null);
-
   const { data: products } = useFetch(url);
+
+  const carouselRef = useRef(null);
   const scrollLeft = () => {
     carouselRef.current.scrollBy({
       left: -250,

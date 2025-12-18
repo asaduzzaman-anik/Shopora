@@ -1,6 +1,6 @@
+import CategorySlider from "../components/CategorySlider";
 import FeaturedProducts from "../components/FeaturedProducts";
 import ProductSlider from "../components/ProductSlider";
-import ShopByCategory from "../components/ShopByCategory";
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
         heading="Smartphones"
         url="https://dummyjson.com/products/category/smartphones?limit=12"
       />
-      <ShopByCategory />
+      <CategorySlider />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { PiShoppingCart } from "react-icons/pi";
-import { RiMenuFold4Line, RiUserLine } from "react-icons/ri";
+import { RiMenuFold4Line, RiSearchLine, RiUserLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import { FaSearch } from "react-icons/fa";
@@ -9,6 +9,7 @@ import CartDrawer from "./CartDrawer";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [cartCount, setCartCount] = useState(0);
 
@@ -33,9 +34,21 @@ export default function Navbar() {
       <div className="fixed top-0 left-0 inset-x-0 bg-white shadow-md z-50">
         {/* Nav  */}
         <nav className="w-full h-12 sm:h-16 px-3 sm:px-6 py-2 flex justify-between lg:justify-evenly items-center">
-          {/* Hamburger menu for mobile screen */}
-          <div className="sm:hidden" onClick={() => setOpenMenu(true)}>
-            <RiMenuFold4Line size={25} />
+          <div className="flex justify-between items-center gap-6">
+            {/* Hamburger menu for mobile screen */}
+            <div className="sm:hidden" onClick={() => setOpenMenu(true)}>
+              <RiMenuFold4Line size={25} />
+            </div>
+            {/* Search icon for mobile */}
+            <div
+              className="sm:hidden"
+              onClick={() => {
+                setShowSearchBar(true);
+                console.log(showSearchBar);
+              }}
+            >
+              <RiSearchLine size={25} />
+            </div>
           </div>
 
           {/* Logo */}
@@ -105,7 +118,6 @@ export default function Navbar() {
       </div>
 
       <MobileNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
-
       <CartDrawer openCart={openCart} setOpenCart={setOpenCart} />
     </>
   );
