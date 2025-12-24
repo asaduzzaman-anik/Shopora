@@ -1,11 +1,26 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import useFetch from "../hooks/useFetch";
+import { useSearchParams } from "react-router-dom";
 
 export default function Products() {
   const url = "https://dummyjson.com/products?limit=150";
-
   const { data: products, isPending, error } = useFetch(url);
+  const [searchParams] = useSearchParams();
+  const [search, setSearch] = useState("");
+  const searchFromURL = searchParams.get("search") || "";
+
+  useEffect(() => {
+    setSearch(searchFromURL);
+  }, [searchFromURL]);
+
+  // Filtering Logic
+  const filteredProducts = products.filter((product) => {
+    const matchSearch = product.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    return matchSearch;
+  });
 
   return (
     <div>
@@ -24,7 +39,7 @@ export default function Products() {
 
       {products && (
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

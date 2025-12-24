@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { PiShoppingCart } from "react-icons/pi";
 import { RiMenuFold4Line, RiSearchLine, RiUserLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import { FaSearch } from "react-icons/fa";
 import { getCartCount } from "../utils/cartUtils";
@@ -12,6 +12,15 @@ export default function Navbar() {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+    navigate(`/products?search=${encodeURIComponent(searchQuery)}`);
+    setSearchQuery("");
+  };
 
   useEffect(() => {
     // Initial load
@@ -60,16 +69,21 @@ export default function Navbar() {
           </Link>
 
           {/* Search Bar for Large Screen */}
-          <div className="hidden sm:flex items-center bg-gray-100 px-3 py-1 rounded-full border">
+          <form
+            onSubmit={handleSearch}
+            className="hidden sm:flex items-center bg-gray-100 px-3 py-1 rounded-full border"
+          >
             <input
               type="text"
               placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="bg-transparent outline-none h-6 px-2 w-60 lg:w-100"
             />
             <button type="submit" className="text-gray-600 hover:text-black">
               <FaSearch />
             </button>
-          </div>
+          </form>
 
           {/* Icons */}
           <div className="flex justify-between items-center gap-6">
@@ -108,10 +122,10 @@ export default function Navbar() {
           </ul>
           <ul className="flex items-center gap-6">
             <li className="hover:border-b-2 hover:border-b-primary">
-              <Link>About Us</Link>
+              <Link to={"/about"}>About Us</Link>
             </li>
             <li className="hover:border-b-2 hover:border-b-primary">
-              <Link>Contact</Link>
+              <Link to={"/contact"}>Contact</Link>
             </li>
           </ul>
         </div>
