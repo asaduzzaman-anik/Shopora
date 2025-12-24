@@ -57,7 +57,7 @@ export default function Cart() {
               <img
                 src={item.thumbnail}
                 alt={item.title}
-                className="w-24 h-24 object-cover rounded"
+                className="w-24 h-24 object-cover rounded bg-gray-200"
               />
 
               <div className="flex-1">
@@ -66,13 +66,13 @@ export default function Cart() {
                 <p className="text-gray-600 mb-2">${item.price}</p>
 
                 {/* Quantity */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 bg-gray-200 rounded-full w-fit">
                   <button
                     onClick={() => {
                       updateQuantity(item.id, "dec");
                       setCart(getCart());
                     }}
-                    className="px-3 py-1 border rounded"
+                    className="px-3 py-1"
                   >
                     −
                   </button>
@@ -84,7 +84,7 @@ export default function Cart() {
                       updateQuantity(item.id, "inc");
                       setCart(getCart());
                     }}
-                    className="px-3 py-1 border rounded"
+                    className="px-3 py-1"
                   >
                     +
                   </button>

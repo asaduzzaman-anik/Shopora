@@ -73,7 +73,7 @@ export default function CartDrawer({ openCart, setOpenCart }) {
                 <img
                   src={item.thumbnail}
                   alt={item.title}
-                  className="w-16 h-24 object-cover rounded"
+                  className="w-24 h-24 object-cover rounded bg-gray-200"
                 />
 
                 {/* Product Info */}
