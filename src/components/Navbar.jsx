@@ -43,21 +43,11 @@ export default function Navbar() {
       <div className="fixed top-0 left-0 inset-x-0 bg-white shadow-md z-50">
         {/* Nav  */}
         <nav className="w-full h-12 sm:h-16 px-3 sm:px-6 py-2 flex justify-between lg:justify-evenly items-center">
-          <div className="flex justify-between items-center gap-6">
+          <div className="sm:hidden flex justify-between items-center gap-6">
             {/* Hamburger menu for mobile screen */}
-            <div className="sm:hidden" onClick={() => setOpenMenu(true)}>
-              <RiMenuFold4Line size={25} />
-            </div>
+            <RiMenuFold4Line size={25} onClick={() => setOpenMenu(true)} />
             {/* Search icon for mobile */}
-            <div
-              className="sm:hidden"
-              onClick={() => {
-                setShowSearchBar(true);
-                console.log(showSearchBar);
-              }}
-            >
-              <RiSearchLine size={25} />
-            </div>
+            <RiSearchLine size={25} onClick={() => setShowSearchBar(true)} />
           </div>
 
           {/* Logo */}
