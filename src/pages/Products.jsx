@@ -16,10 +16,12 @@ export default function Products() {
 
   // Filtering Logic
   const filteredProducts = products.filter((product) => {
-    const matchSearch = product.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    return matchSearch;
+    const query = search.toLowerCase();
+    return (
+      product.title.toLowerCase().includes(query) ||
+      product.brand?.toLowerCase().includes(query) ||
+      product.category.toLowerCase().includes(query)
+    );
   });
 
   return (

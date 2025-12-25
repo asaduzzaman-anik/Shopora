@@ -19,15 +19,18 @@ export default function Contact() {
           <input
             type="text"
             placeholder="Your Name"
+            required
             className="px-4 py-3 rounded-xl border border-gray-300 outline-none focus:border-primary"
           />
           <input
             type="email"
             placeholder="Your Email"
+            required
             className="px-4 py-3 rounded-xl border border-gray-300 focus:border-primary outline-none"
           />
           <textarea
             placeholder="Your Message"
+            required
             rows={5}
             className="px-4 py-3 rounded-xl border border-gray-300 focus:border-primary outline-none"
           />

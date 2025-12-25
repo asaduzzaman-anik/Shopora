@@ -65,7 +65,7 @@ export default function Navbar() {
           >
             <input
               type="text"
-              placeholder="Search products..."
+              placeholder="Search products, brands, or categories..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="bg-transparent outline-none h-6 px-2 w-60 lg:w-100"
