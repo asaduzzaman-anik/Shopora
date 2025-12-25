@@ -9,7 +9,6 @@ import CartDrawer from "./CartDrawer";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const [showSearchBar, setShowSearchBar] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
@@ -47,7 +46,7 @@ export default function Navbar() {
             {/* Hamburger menu for mobile screen */}
             <RiMenuFold4Line size={25} onClick={() => setOpenMenu(true)} />
             {/* Search icon for mobile */}
-            <RiSearchLine size={25} onClick={() => setShowSearchBar(true)} />
+            <RiSearchLine size={25} />
           </div>
 
           {/* Logo */}

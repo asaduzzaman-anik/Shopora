@@ -9,20 +9,23 @@ export default function Products() {
   const [searchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const searchFromURL = searchParams.get("search") || "";
+  const selectedCategory = searchParams.get("category");
 
   useEffect(() => {
     setSearch(searchFromURL);
   }, [searchFromURL]);
 
   // Filtering Logic
-  const filteredProducts = products.filter((product) => {
-    const query = search.toLowerCase();
-    return (
-      product.title.toLowerCase().includes(query) ||
-      product.brand?.toLowerCase().includes(query) ||
-      product.category.toLowerCase().includes(query)
-    );
-  });
+  const filteredProducts = selectedCategory
+    ? products.filter((product) => product.category === selectedCategory)
+    : products.filter((product) => {
+        const query = search.toLowerCase();
+        return (
+          product.title.toLowerCase().includes(query) ||
+          product.brand?.toLowerCase().includes(query) ||
+          product.category.toLowerCase().includes(query)
+        );
+      });
 
   return (
     <div>
@@ -40,7 +43,7 @@ export default function Products() {
       )}
 
       {products && (
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 mb-5">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

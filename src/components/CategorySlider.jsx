@@ -1,12 +1,13 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CategorySlider() {
   const [categories, setCategories] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
   const catURL = "https://dummyjson.com/products/categories";
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(catURL)
       .then((res) => {
@@ -41,6 +42,10 @@ export default function CategorySlider() {
     });
   };
 
+  const handleCategoryClick = (category) => {
+    navigate(`/products?category=${category}`);
+  };
+
   return (
     <div className="w-full mb-10">
       {/* heading */}
@@ -68,7 +73,8 @@ export default function CategorySlider() {
             {categories.map((cat) => (
               <div
                 key={cat.slug}
-                className="h-20 bg-gray-200 text-blue-950 font-medium rounded-lg flex items-center justify-center"
+                onClick={() => handleCategoryClick(cat.slug)}
+                className="h-20 bg-gray-200 text-blue-950 font-medium rounded-lg flex items-center justify-center cursor-pointer"
               >
                 <p>{cat.name}</p>
               </div>
