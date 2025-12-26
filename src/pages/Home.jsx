@@ -1,5 +1,4 @@
 import CategorySlider from "../components/CategorySlider";
-import FeaturedProducts from "../components/FeaturedProducts";
 import ProductSlider from "../components/ProductSlider";
 
 export default function Home() {
