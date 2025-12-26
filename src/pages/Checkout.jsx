@@ -40,16 +40,6 @@ export default function Checkout() {
       navigate("/login");
       return;
     }
-    if (
-      !form.name ||
-      !form.email ||
-      !form.address ||
-      !form.city ||
-      !form.phone
-    ) {
-      alert("Please fill in all required fields");
-      return;
-    }
 
     const orderId = generateOrderId();
 
@@ -94,6 +84,7 @@ export default function Checkout() {
                 placeholder="Full Name"
                 value={form.name}
                 onChange={handleChange}
+                required
                 className="border rounded px-4 py-2 w-full"
               />
 
@@ -103,6 +94,7 @@ export default function Checkout() {
                 placeholder="Email Address"
                 value={form.email}
                 onChange={handleChange}
+                required
                 className="border rounded px-4 py-2 w-full"
               />
 
@@ -112,6 +104,7 @@ export default function Checkout() {
                 placeholder="Phone Number"
                 value={form.phone}
                 onChange={handleChange}
+                required
                 className="border rounded px-4 py-2 w-full"
               />
 
@@ -121,6 +114,7 @@ export default function Checkout() {
                 placeholder="City"
                 value={form.city}
                 onChange={handleChange}
+                required
                 className="border rounded px-4 py-2 w-full"
               />
             </div>
@@ -130,6 +124,7 @@ export default function Checkout() {
               placeholder="Full Address"
               value={form.address}
               onChange={handleChange}
+              required
               className="border rounded px-4 py-2 w-full mt-4"
               rows="4"
             />

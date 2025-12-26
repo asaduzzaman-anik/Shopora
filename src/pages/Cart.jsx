@@ -72,7 +72,7 @@ export default function Cart() {
                       updateQuantity(item.id, "dec");
                       setCart(getCart());
                     }}
-                    className="px-3 py-1"
+                    className="px-3 py-1 cursor-pointer"
                   >
                     −
                   </button>
@@ -84,7 +84,7 @@ export default function Cart() {
                       updateQuantity(item.id, "inc");
                       setCart(getCart());
                     }}
-                    className="px-3 py-1"
+                    className="px-3 py-1 cursor-pointer"
                   >
                     +
                   </button>

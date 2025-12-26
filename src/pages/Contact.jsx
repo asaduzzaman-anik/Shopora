@@ -14,7 +14,7 @@ export default function Contact() {
           </p>
         </div>
       </section>
-      <div className="bg-white ring ring-primary rounded-2xl p-5 my-5 sm:mt-20">
+      <div className="bg-white ring ring-purple-800 rounded-2xl p-5 my-5 sm:mt-20">
         <h2 className="text-primary font-medium text-lg mb-5">
           Send us a message
         </h2>
