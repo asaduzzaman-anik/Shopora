@@ -140,7 +140,10 @@ export default function Navbar() {
 
       {/* MOBILE SEARCH BAR (Below Navbar) */}
       {showMobileSearch && (
-        <form onSubmit={handleSearch} className="sm:hidden mt-12 px-4 py-3">
+        <form
+          onSubmit={handleSearch}
+          className="sm:hidden relative mt-12 px-4 py-3"
+        >
           <input
             type="text"
             placeholder="Search products, brands, or categories..."
@@ -148,6 +151,12 @@ export default function Navbar() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full border rounded-md px-3 py-2 focus:outline-none"
           />
+          <button
+            type="submit"
+            className="absolute right-6 top-6 text-gray-600 hover:text-black"
+          >
+            <FaSearch size={20} />
+          </button>
         </form>
       )}
       <MobileNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
