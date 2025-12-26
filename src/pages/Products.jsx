@@ -46,7 +46,7 @@ export default function Products() {
       {products && (
         <div>
           {filteredProducts.length === 0 && (
-            <div className="h-[calc(100vh-80px)] flex flex-col justify-center items-center ">
+            <div className="h-60 my-15 flex flex-col justify-center items-center ">
               <TbMoodEmpty size={100} className="text-purple-700" />
               <h2 className="text-2xl sm:text-5xl">No products found</h2>
               <Link
