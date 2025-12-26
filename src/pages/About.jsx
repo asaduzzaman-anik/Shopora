@@ -41,10 +41,10 @@ const AboutUs = () => {
             </h2>
             <div className="space-y-4 text-gray-600">
               <p className="text-lg">
-                Founded in 2015 by three college friends, StyleCart began as a
-                small online boutique selling handmade accessories. What started
-                as a passion project quickly grew into one of the
-                fastest-growing e-commerce platforms.
+                Founded in 2015 by three college friends, Shopora began as a
+                small e-commerce selling various products that you need on daily
+                basis. What started as a passion project quickly grew into one
+                of the fastest-growing e-commerce platforms.
               </p>
               <p className="text-lg">
                 Today, we serve over 2 million customers worldwide, offering
