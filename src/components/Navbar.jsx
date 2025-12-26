@@ -6,11 +6,13 @@ import MobileNav from "./MobileNav";
 import { FaSearch } from "react-icons/fa";
 import { getCartCount } from "../utils/cartUtils";
 import CartDrawer from "./CartDrawer";
+import { getUser } from "../utils/authUtils";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const [user, setUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
@@ -20,6 +22,15 @@ export default function Navbar() {
     navigate(`/products?search=${encodeURIComponent(searchQuery)}`);
     setSearchQuery("");
   };
+
+  useEffect(() => {
+    setUser(getUser());
+
+    const syncUser = () => setUser(getUser());
+    window.addEventListener("storage", syncUser);
+
+    return () => window.removeEventListener("storage", syncUser);
+  }, []);
 
   useEffect(() => {
     // Initial load
@@ -92,9 +103,15 @@ export default function Navbar() {
             </button>
 
             {/* User Icon */}
-            <button className="cursor-pointer hover:text-primary">
-              <RiUserLine size={25} />
-            </button>
+            {user ? (
+              <Link to="/profile" className="cursor-pointer">
+                <RiUserLine size={25} />
+              </Link>
+            ) : (
+              <Link to="/login" className="cursor-pointer">
+                <RiUserLine size={25} />
+              </Link>
+            )}
           </div>
         </nav>
         <div className="hidden text-lg font-medium sm:flex justify-evenly lg:justify-center lg:gap-40 items-center mx-auto h-12 sm:h-16 px-3 sm:px-6 py-2">
