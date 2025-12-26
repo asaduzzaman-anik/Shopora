@@ -3,6 +3,7 @@ import { getCart, clearCart } from "../utils/cartUtils";
 import { useNavigate } from "react-router-dom";
 import { generateOrderId, saveOrder } from "../utils/orderUtils";
 import { getUser } from "../utils/authUtils";
+import toast from "react-hot-toast";
 
 export default function Checkout() {
   const [cart, setCart] = useState([]);
@@ -36,7 +37,7 @@ export default function Checkout() {
     const user = getUser();
 
     if (!user) {
-      alert("Please login to place order");
+      toast("Please login to place order");
       navigate("/login");
       return;
     }
@@ -149,7 +150,7 @@ export default function Checkout() {
 
           <button
             type="submit"
-            className="bg-black text-white px-6 py-3 rounded hover:opacity-90"
+            className="bg-black text-white px-6 py-3 rounded hover:opacity-90 cursor-pointer"
           >
             Place Order
           </button>
