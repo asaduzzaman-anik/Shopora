@@ -13,6 +13,7 @@ export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [user, setUser] = useState(null);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
@@ -57,7 +58,10 @@ export default function Navbar() {
             {/* Hamburger menu for mobile screen */}
             <RiMenuFold4Line size={25} onClick={() => setOpenMenu(true)} />
             {/* Search icon for mobile */}
-            <RiSearchLine size={25} />
+            <RiSearchLine
+              size={25}
+              onClick={() => setShowMobileSearch(!showMobileSearch)}
+            />
           </div>
 
           {/* Logo */}
@@ -134,6 +138,18 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* MOBILE SEARCH BAR (Below Navbar) */}
+      {showMobileSearch && (
+        <form onSubmit={handleSearch} className="sm:hidden mt-12 px-4 py-3">
+          <input
+            type="text"
+            placeholder="Search products, brands, or categories..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full border rounded-md px-3 py-2 focus:outline-none"
+          />
+        </form>
+      )}
       <MobileNav openMenu={openMenu} setOpenMenu={setOpenMenu} />
       <CartDrawer openCart={openCart} setOpenCart={setOpenCart} />
     </>
