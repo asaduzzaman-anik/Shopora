@@ -8,6 +8,9 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
+import Login from "./pages/Login";
 // import ProductDetails from "./pages/ProductDetails";
 
 const App = () => {
@@ -23,6 +26,9 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />

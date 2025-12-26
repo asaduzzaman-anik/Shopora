@@ -123,12 +123,27 @@ export default function Cart() {
         <div className="border rounded-lg p-6 h-fit">
           <h2 className="text-xl font-bold mb-4">Order Summary</h2>
 
-          <div className="flex justify-between mb-2">
+          <div className="flex justify-between font-medium border-b mb-2">
             <span>Items</span>
-            <span>{cart.length}</span>
+            <div className="w-[40%] flex justify-between gap-3">
+              <span>Quantity</span>
+              <span>Sub-Total</span>
+            </div>
           </div>
+          {cart.map((item) => (
+            <div
+              key={item.id}
+              className="flex justify-between font-medium mb-2"
+            >
+              <span className="text-wrap max-w-[60%]">{item.title}</span>
+              <div className="w-[40%] flex justify-between gap-3">
+                <span>{item.quantity}</span>
+                <span>{item.price * item.quantity}</span>
+              </div>
+            </div>
+          ))}
 
-          <div className="flex justify-between mb-4 font-semibold">
+          <div className="flex justify-between border-t mb-4 font-semibold">
             <span>Total</span>
             <span>${totalPrice.toFixed(2)}</span>
           </div>
