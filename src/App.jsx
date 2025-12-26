@@ -13,11 +13,13 @@ import OrderSuccess from "./pages/OrderSuccess";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import MyOrders from "./pages/MyOrders";
+import { Toaster } from "react-hot-toast";
 // import ProductDetails from "./pages/ProductDetails";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Toaster position="bottom-center" />
       <Navbar />
       <main className="pt-20 sm:pt-40 px-3 sm:px-6">
         {/* <ProductCarousel /> */}

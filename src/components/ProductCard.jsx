@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { addToCart } from "../utils/cartUtils";
+import toast from "react-hot-toast";
 
 export default function ProductCard({ product }) {
   return (
@@ -34,6 +35,7 @@ export default function ProductCard({ product }) {
       <button
         onClick={() => {
           addToCart(product);
+          toast.success("Product added to cart");
         }}
         className="absolute bottom-18 opacity-0 group-hover:opacity-100 transition ease-in-out bg-gray-900 text-white font-medium inset-x-0 text-center p-2 rounded-lg cursor-pointer "
       >
