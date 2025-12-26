@@ -122,9 +122,6 @@ export default function Navbar() {
             <li className="hover:border-b-2 hover:border-b-primary">
               <Link to={"/products"}>Products</Link>
             </li>
-            <li className="hover:border-b-2 hover:border-b-primary">
-              <Link>Best Seller</Link>
-            </li>
           </ul>
           <ul className="flex items-center gap-6">
             <li className="hover:border-b-2 hover:border-b-primary">

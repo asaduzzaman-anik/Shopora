@@ -28,6 +28,7 @@ export default function ProductCard({ product }) {
           <span className="text-primary text-sm">
             (-{product.discountPercentage}%)
           </span>
+          <span>{product.rating}</span>
         </p>
       </Link>
       <button

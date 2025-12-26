@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import useFetch from "../hooks/useFetch";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { TbMoodEmpty } from "react-icons/tb";
 
 export default function Products() {
   const url = "https://dummyjson.com/products?limit=150";
@@ -43,10 +44,24 @@ export default function Products() {
       )}
 
       {products && (
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 mb-5">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        <div>
+          {filteredProducts.length === 0 && (
+            <div className="h-[calc(100vh-80px)] flex flex-col justify-center items-center ">
+              <TbMoodEmpty size={100} className="text-purple-700" />
+              <h2 className="text-2xl sm:text-5xl">No products found</h2>
+              <Link
+                to={"/"}
+                className="bg-purple-700 text-white text-2xl p-2 mt-5 rounded-xl hover:bg-purple-500 cursor-pointer transition"
+              >
+                Back to Home
+              </Link>
+            </div>
+          )}
+          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 mb-5">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       )}
     </div>
