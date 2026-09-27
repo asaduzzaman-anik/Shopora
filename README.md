@@ -1,17 +1,45 @@
-# React + Vite
+# Shopora
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Shopora is a front-end e-commerce app for browsing products, managing a cart, and placing orders. Product data comes from the [DummyJSON](https://dummyjson.com) API. Cart, login, and order history are stored in the browser with `localStorage`.
 
-Currently, two official plugins are available:
+**Live site:** [https://shopora-anik.netlify.app](https://shopora-anik.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech stack
 
-## React Compiler
+- [React 19](https://react.dev/)
+- [Vite 7](https://vite.dev/)
+- [React Router 7](https://reactrouter.com/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [react-hot-toast](https://react-hot-toast.com/) for notifications
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [jsPDF](https://github.com/parallax/jsPDF) and [html2canvas](https://html2canvas.hertzen.com/) for invoice downloads
+- [ESLint](https://eslint.org/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Home page with featured products and category sliders
+- Product listing, search, and product details
+- Cart drawer and cart page
+- Checkout, order confirmation, and PDF invoice download
+- Client-side login, profile, and order history
+- About and contact pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# Shopora" 
+## Run locally
+
+You need [Node.js](https://nodejs.org/) (current LTS is fine).
+
+```bash
+npm install
+npm run dev
+```
+
+Vite prints a local URL, usually `http://localhost:5173`.
+
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Build for production into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |

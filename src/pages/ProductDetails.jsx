@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import StarRating from "../components/StarRating";
 import { addToCart } from "../utils/cartUtils";
+import toast from "react-hot-toast";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -128,7 +129,7 @@ export default function ProductDetails() {
               disabled={product.stock === 0}
               onClick={() => {
                 addToCart(product, quantity);
-                alert("Product added to cart");
+                toast.success("Product added to cart");
               }}
               className={`px-6 py-3 rounded text-white
               ${
